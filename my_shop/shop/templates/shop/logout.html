@@ -1,0 +1,10 @@
+{% extends 'shop/layout.html' %}
+
+{% block title %}Sign up{% endblock %}
+{% block head %}head{% endblock %}
+{% block text %}
+    <p>Logged out!</p>
+
+    <a href="{% url 'login'%}">Click here to login again.</a><br>
+    <a href="{% url 'home' %}">Click here to go to home page</a>
+{% endblock %}

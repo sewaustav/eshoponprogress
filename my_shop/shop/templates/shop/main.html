@@ -1,0 +1,32 @@
+{% extends 'shop/layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}
+	<h1>{{ head }}</h1>
+{% endblock %}
+
+{% block text %}
+	<p>{{ text }}</p>
+    <div class="left-main">
+        <div class="mainn profile-main">
+            <img class="img-main" id="profile-btn-main" src="{% static 'shop/img/profile-btn.png' %}">
+            <div class="btn-main-page" id="profile-btn-main-b"><a href="{% url 'prof' %}">Профиль</a></div>
+        </div><br>
+        <div class="mainn basket-main">
+            <img class="img-main" id="basket-btn-main" src="{% static 'shop/img/basket-btn.png' %}">
+            <div class="btn-main-page" id="basket-btn-main-b"><a href="{% url 'mybasket' %}">Корзина</a></div>
+        </div>
+    </div>
+    <div class="right-main">
+        <div class="mainn shop-main">
+            <img class="img-main" id="shop-btn-main" src="{% static 'shop/img/buy-btn.png' %}">
+            <div class="btn-main-page" id="shop-btn-main-b"><a href="{% url 'main' %}">Каталог</a></div>
+        </div><br>
+        <div class="mainn about-main">
+            <img class="img-main" id="info-btn-main" src="{% static 'shop/img/info-btn.png' %}">
+            <div class="btn-main-page" id="info-btn-main-b"><a href="#">О нас</a></div>
+        </div>
+    </div>
+{% endblock %}

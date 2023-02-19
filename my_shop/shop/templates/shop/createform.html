@@ -1,0 +1,21 @@
+{% extends 'shop/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}{{ head }}{% endblock %}
+
+{% block text %}
+<div class="form">
+    <h2>Добавить пост</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.product }} <br>
+        {{ form.price }} <br>
+        {{ form.autor }} <br><br>
+        {{ form.description }}<br><br>
+        {{ form.date_of_publication }}<br>
+        <span>{{ error }}</span><br><br>
+        <button class="btn btn-success" type="submit">Создать</button>
+    </form>
+</div>
+{% endblock %}

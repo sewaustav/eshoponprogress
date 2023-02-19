@@ -1,0 +1,17 @@
+{% extends 'shop/layout.html' %}
+{% load static %}
+
+{% block title %}Мой профиль{% endblock %}
+
+{% block head %}<h3>Мой профиль</h3>{% endblock %}
+
+{% block text %}
+<br>
+{% if user.is_authenticated %}
+<h3>{{ user.username }}</h3>
+{% else %}
+<a class="btn btn-warning" href="{% url 'signup' %}">Sign up</a>
+{% endif %}<br>
+<a class="btn btn-success" href="{% url 'home' %}">Домой</a>
+
+{% endblock %}

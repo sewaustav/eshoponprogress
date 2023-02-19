@@ -1,0 +1,24 @@
+{% extends 'shop/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}{{ head }}{% endblock %}
+
+{% block text %}
+
+    <h1>Search Results</h1>
+
+    <div>
+        {% for prod in results %}
+
+                {% if prod.price > minprice %}
+                    {% if prod.price < maxprice %}
+                        {{ prod.product }}, {{ prod.price }}, {{ prod.autor }}
+                        <a href="{% url 'id_prod' prod.id %}" class="btn btn-warning">Читать</a>
+                    {% endif %}
+                {% endif %}
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

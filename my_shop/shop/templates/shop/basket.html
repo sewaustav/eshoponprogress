@@ -1,0 +1,15 @@
+{% extends 'shop/layout.html' %}
+
+{% block title %}title{% endblock %}
+
+{% block head %}head{% endblock %}
+
+{% block text %}
+
+    <p>{{ id }}
+    {{ product }}
+    {{ auth_user }}
+        Успешно добавленно в корзину <a href="{% url 'mybasket' %}">Перейти к корзине</a>
+    </p>
+
+{% endblock %}

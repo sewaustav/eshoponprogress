@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'shop/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'shop/css/fontawesome.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'shop/css/layout.css' %}">
+    </head>
+    <body>
+        <header>
+            <br>
+            <div id="fl">
+                <form action="{% url 'search_results' %}" method="get">
+                    <input class="inp" name="q" type="text" placeholder="Search...">
+                    <input class="inp" name="a" type="text" placeholder="minprice">  <input class="inp" name="b" type="text" placeholder="maxprice">
+                    <button id="search_but" type="submit"><img id="lup" src="{% static 'shop/img/lupa.svg' %}"></button>
+                </form>
+            </div>
+            <div id='fr'>
+                    
+                    {% if user.is_authenticated %}
+                        <a class="btn_grey" href="{% url 'logout' %}">Logout</a>
+                        <a class="btn_grey" href="{% url 'main' %}">Welcome, {{user.username}}</a>
+                    {% else %}
+                        <a class="btn_grey" href="{% url 'login' %}">Login</a>
+                        <a href="{% url 'signup' %}" class="btn_grey">Join</a>
+                    {% endif %}
+
+                
+            </div>
+            
+        </header>
+        <br><br>
+        <h1>{% block head %}{% endblock %}</h1>
+        <main>
+            {% block text %}{% endblock %}
+        </main>
+
+    </body>
+</html>

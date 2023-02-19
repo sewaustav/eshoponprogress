@@ -1,0 +1,21 @@
+{% extends 'shop/layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}<br>{{ head }}{% endblock %}
+
+{% block text %}
+	<h2>{{ test }}</h2>
+    <br>
+    {% for el in story %}
+        <div class="content-sew-sp alert alert-dangerous">
+            <h1 id="hh3">{{ el.product }}</h3>
+            <h4 id="hh4">{{ el.autor }}</h4>
+            <p id="price">{{ el.price }}</p>
+            <a id="buy-btn" href="{% url 'id_prod' el.id %}" class="btn btn-light"><img src="{% static 'shop/img/buy-shop.png' %}" id="buy-shop"><img src="{% static 'shop/img/buy-shop-hover.png' %}" id="buy-shop-hover"></a>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}

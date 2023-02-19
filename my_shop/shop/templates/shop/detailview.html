@@ -1,0 +1,33 @@
+{% extends 'shop/layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}{{ head }}{% endblock %}
+
+{% block text %}
+
+		<div id="img-div"></div>
+		<div class="content-web">
+			<div id="content-view">
+				<h1 class="d-content">{{ newcontent.product }}</h1><br><br>
+				<h3 class="d-content">{{ newcontent.autor }}</h3><br>
+
+				<p id="p">Дата публикации: <br>{{ newcontent.date_of_publication }}</p>
+				<p> {{ newcontent.productview.count }}</p><br>
+				<div class="text-sew">
+					<div id="description-content" class="d-content">{{ newcontent.description| linebreaksbr }}</div>
+				</div>
+			</div>
+			<p id="price-info">{{ newcontent.price }}</p>
+			<div id="btn-bas-buy">
+				<a id="btn-buy-p" href="#"><button  type="submit"><img src="{% static 'shop/img/buy-shop.png' %}" id="buy-btn-b"><img src="{% static 'shop/img/buy-shop-hover.png' %}" id="buy-btn-hover-b"></button></a>
+				{% if user.is_authenticated %}
+					<form action="{% url 'basket' %}" method="get">
+						<input id="op" type="text" name="q" value="{{ newcontent.id }}">
+						<button type="submit"  ><img id="basket-btn-i" src="{% static 'shop/img/basket-shop.png' %}"><img id="basket-btn-i-hover" src="{% static 'shop/img/basket-shop-hover.png' %}"></button>
+					</form>
+				{% endif %}
+			</div>
+		</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'shop/layout.html' %}
+
+{% block title %}title{% endblock %}
+
+{% block head %}My Basket{% endblock %}
+<br>
+{% block text %}
+    {{ user }}
+    {% for el in products %}
+        <p class="basket_el">{{ el.product }}  <a class="btn btn-warning" href="{% url 'id_prod' el.id_product %}">Follow</a></p>
+    {% endfor %}
+{% endblock %}
